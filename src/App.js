@@ -14,13 +14,29 @@ const storyPoints = [1, 2, 3, 5, 8, 13];
 class App extends Component {
 
   state = {
-    roomId: 'room-1234567',
+    roomId: '',
     user: {
-      id: 1,
-      name: 'Nha',
-      isHost: true,
-      pointSelected: 5,
+      id: '',
+      name: '',
+      isHost: false,
+      pointSelected: 0,
     }
+  }
+
+  onCreateRoom = ( member, roomId ) => {
+    const user = Object.assign({}, member);
+    this.setState({
+      user: user, 
+      roomId: roomId
+    })
+  }
+
+  onJoinRoom = (member, roomId ) => {
+    const user = Object.assign({}, member);
+    this.setState({
+      user: user, 
+      roomId: roomId
+    })
   }
 
   render() {
@@ -31,11 +47,16 @@ class App extends Component {
         <Routes>
           <Route
             path='/'
-            element={<RegisterRoomForm />}
+            element={
+              <RegisterRoomForm
+                onCreateRoom={this.onCreateRoom}
+                onJoinRoom={this.onJoinRoom}
+              />
+            }
           />
 
           <Route
-            path='/room/:roomId'
+            path={`/room/${this.state.roomId}`}
             element={
               <Room
                 roomId={this.state.roomId}

@@ -82,7 +82,7 @@ export default class Room extends Component {
 
           <Button
             content='Reset Pick'
-            className={this.state.currentMemnber ? 'primary' : ''}
+            className={this.state.currentMemnber.isHost ? 'primary' : ''}
             disabled={!this.state.currentMemnber.isHost}
             onClick={this.handleResetPick}
           />
