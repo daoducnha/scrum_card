@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Label } from "semantic-ui-react";
 
+const memberName = "User_test";
+
 export default function TopBar() {
     return (
         <div
@@ -21,7 +23,7 @@ export default function TopBar() {
                 <div style={{ marginTop: '26px' }}>
                     <Label as='a' image >
                         <img src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
-                        Joe
+                        {memberName}
                     </Label>
                 </div>
 
