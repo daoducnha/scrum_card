@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import {
+    Container,
     Header,
     Button,
     Input,
@@ -8,12 +11,11 @@ import {
 
 export default function Home() {
     return (
-        <div className='ui'>
-            <Header as='h1'>Scrum Card</Header>
+        <Container>        
+            <Header as='h1'>Please enter your name and room id</Header>
             <br />
             <div>
                 <Input icon placeholder='Enter your name.' >
-
                     <input />
                     <Icon name='user' />
                 </Input>
@@ -26,8 +28,17 @@ export default function Home() {
             </div>
 
             <br />
-            <Button content='Create Room' />
-            <Button content='Join Room' />
-        </div>
+            <Button>
+                <Link to='/room/:roomId'>
+                    Create Room
+                </Link>
+            </Button>
+            
+            <Button>
+                <Link to='/room/:roomId'>
+                    Join Room
+                </Link>
+            </Button>            
+        </Container>
     );
 }
