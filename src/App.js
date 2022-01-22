@@ -2,23 +2,48 @@ import React, { Component } from 'react';
 
 import './App.css';
 import Room from './components/Room';
-import Home from './components/Home';
 import {
   Routes,
   Route,
 } from 'react-router-dom';
 import TopBar from './components/TopBar';
+import RegisterRoomForm from './components/RegisterRoomForm';
+
+const storyPoints = [1, 2, 3, 5, 8, 13];
 
 class App extends Component {
-  sta
+
+  state = {
+    roomId: 'room-1234567',
+    user: {
+      id: 1,
+      name: 'Nha',
+      isHost: true,
+      pointSelected: 5,
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <TopBar />
+        <TopBar user={this.state.user} />
         <br />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/room/:roomId' element={<Room />} />
+          <Route
+            path='/'
+            element={<RegisterRoomForm />}
+          />
+
+          <Route
+            path='/room/:roomId'
+            element={
+              <Room
+                roomId={this.state.roomId}
+                storyPoints={storyPoints}
+                user={this.state.user}
+              />
+            }
+          />
         </Routes>
       </div>
     );

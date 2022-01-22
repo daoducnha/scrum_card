@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { Label } from "semantic-ui-react";
 
-const memberName = "User_test";
+import { Link } from "react-router-dom";
 
-export default function TopBar() {
+export default function TopBar({user}) {
     return (
         <div
             className='ui massive top attached fluid secondary menu'
@@ -23,7 +23,7 @@ export default function TopBar() {
                 <div style={{ marginTop: '26px' }}>
                     <Label as='a' image >
                         <img src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
-                        {memberName}
+                        {user.name}
                     </Label>
                 </div>
 

@@ -1,9 +1,8 @@
 import React from "react";
+
 import { Container, Header, Icon } from "semantic-ui-react";
 
-const roomId = 'room-123456';
-
-export default function RoomHeader() {
+export default function RoomHeader({roomId}) {
     return (
         <Container>        
             <Header icon textAlign='center' as='h1'>
